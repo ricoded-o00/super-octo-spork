@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>IHK Präsentation: Sicherheitsrichtlinie für mobile Endgeräte</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css"
+		id="theme-white">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/league.css" id="theme">
+
+</head>
+<style>
+	.notes { font-size: 18px; }
+	.blur {
+		filter: blur(7px);
+		opacity: .3;
+	}
+
+	.risk-matrix {
+		border-collapse: collapse;
+		font-size: 0.5em;
+		margin: auto;
+	}
+
+	.risk-matrix th,
+	.risk-matrix td {
+		border: 1px solid #ccc;
+		width: 30px;
+		height: 30px;
+		text-align: center !important;
+		vertical-align: middle;
+	}
+
+	.risk-matrix .header {
+		font-weight: bold;
+	}
+
+	.risk-matrix .axis-label-v {
+		writing-mode: sideways-lr;
+		text-orientation: mixed;
+		font-size: 0.7em;
+	}
+
+	.risk-matrix .axis-label-h {
+		align-content: center;
+		font-size: 0.7em;
+	}
+
+	.risk-low {
+		background-color: #90EE90;
+		color: dimgray;
+	}
+
+	/* Light Green */
+	.risk-medium {
+		background-color: #FFD700;
+		color: dimgray;
+	}
+
+	/* Yellow */
+	.risk-high {
+		background-color: #FFA500;
+		color: dimgray;
+	}
+
+	/* Orange */
+	.risk-extreme {
+		background-color: #FF5555;
+		color: black;
+	}
+
+	/* Red */
+</style>
+
+<body>
+	<!-- *** DEFAULT SLIDE WITH BLURRED LOGO AS BACKGROUND ***
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text blur" 
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							<strong>recodeHealth</strong>
+						</p>
+
+						<div class="r-fit-text">
+							***CONTENT-HERE***
+						</div>
+					</div>
+				</section>
+				-->
+	<div class="reveal">
+		<div class="slides">
+
+			<section name="first-page">
+				<img src="images/mr-logo.png" alt="MindRefined Logo"
+					style="height: 80px; border:none; box-shadow:none; position: relative; left: -120px;">
+				<img src="images/ihk-logo.png" alt="IHK Logo"
+					style="height: 80px; border:none; box-shadow:none; position: relative; right: -120px;">
+				<p><small>Präsentation des Projektarbeits</small></p>
+				<h3>Analyse der Sicherheitsanforderungen und Konzeption einer
+					Sicherheitsrichtlinie für Nutzung mobiler Geräte</h3>
+				<p>
+					<small>zur Erlangung der Zertifizierung IHK Cyber Security Advisor</small><br>
+					<small>Präsentator: Enriko Dolama</small><br>
+					<!-- <small>Datum: 25.07.2025</small> -->
+				</p>
+				<aside class="notes">
+					<ul>
+						<li>Sehr geehrte Damen und Herren, mein Name ist Enriko Dolama.</li>
+						<li>Thema meiner Projektarbeit zum IHK Cyber Security Advisor ist die Konzeption einer Sicherheitsrichtlinie für mobile Geräte bei der RecodeHealth AG.</li>
+					</ul>
+				</aside>
+			</section>
+
+			<section name="agenda">
+				<h3>Agenda</h3>
+				<ol>
+					<li class="fragment fade-down">Unternehmensbeschreibung & Problemaufriss</li>
+					<li class="fragment fade-left">Schutzbedarfsfeststellung</li>
+					<li class="fragment fade-right">Soll-Ist-Abgleich</li>
+					<li class="fragment fade-left">Risikoanalyse</li>
+					<li class="fragment fade-right">Fazit und Empfehlung</li>
+					<li class="fragment fade-left">Vorstellung der empfohlenen Lösung</li>
+					<li class="fragment fade-up">Fragen & Antworten</li>
+				</ol>
+				<aside class="notes">
+					<ul>
+						<li>Meine Präsentation folgt der 5-Schritte-Struktur der ISMS-Methodik, die auch die Gliederung meiner schriftlichen Arbeit ist.</li>
+						<li>Ich werde Sie systematisch von der Problemanalyse bis zur finalen Empfehlung und der Vorstellung der Lösung führen.</li>
+					</ul>
+				</aside>
+			</section>
+
+			<section name="intro">
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #ffffff; font-weight: bold;">
+							<strong>recodeHealth</strong>
+						</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							<strong>recodeHealth</strong>
+						</p>
+
+						<div class="r-fit-text">
+							<ul>
+								<li class="fade-down">
+									<strong>RecodeHealth AG</strong> (Health-Tech), verarbeitet hochsensible PHI & IP
+								</li>
+							</ul>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li><strong>Unternehmen:</strong> Die RecodeHealth AG ist ein Health-Tech Unternehmen, das hochsensible Patientendaten und geistiges Eigentum verarbeitet.</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							<strong>recodeHealth</strong>
+						</p>
+
+						<div class="r-fit-text">
+							<ul>
+								<li class="fade-down">
+									<strong>RecodeHealth AG</strong> (Health-Tech), verarbeitet hochsensible PHI & IP
+								</li>
+								<li class="fade-up">
+									Verlust eines unverschlüsselten Tablets mit sensiblen Daten
+								</li>
+							</ul>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li><strong>Auslöser:</strong> Ein verlorenes, unverschlüsseltes Tablet mit sensiblen Firmendaten.</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							<strong>recodeHealth</strong>
+						</p>
+
+						<div class="r-fit-text">
+							<ul>
+								<li class="fade-down">
+									<strong>RecodeHealth AG</strong> (Health-Tech), verarbeitet hochsensible PHI & IP
+								</li>
+								<li class="fade-up">
+									Verlust eines unverschlüsselten Tablets mit sensiblen Daten
+								</li>
+								<li class="fade-up">
+									Ungesteuerte Mobilgeräte = <strong>Inakzeptables Risiko für Geschäft & DSGVO</strong>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li><strong>Problem:</strong> Die ungesteuerte Nutzung mobiler Geräte ist ein inakzeptables Risiko für Kerngeschäft und DSGVO-Konformität.</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+
+			<section name="schutzbedarfsfeststellung">
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #ffffff; font-weight: bold;">
+							<strong>die Schutzbedarfsstruktur</strong>
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<div class="r-fit-text">
+						<h3>Schutzbedarfsstruktur: Die Kernwerte</h3>
+						<p>Analyse der wichtigsten Assets und ihres Schutzbedarfs.</p>
+
+						<table style="font-size: 0.8em; margin: auto; width: 80%;">
+							<thead>
+								<tr>
+									<th style="width: 40%;">Asset / Schutzobjekt</th>
+									<th style="width: 40%;">Schutzziele (V, I, V)</th>
+									<th style="width: 20%;">Resultierender Schutzbedarf</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="fragment fade-down">
+									<!-- <td><strong>E001:</strong> Mobile Endgeräte</td> -->
+									<td style="text-align: left; vertical-align: middle; align-items: center;">
+										<img src="images/smartphone.svg" alt="Mobile" style="height: 1.2em; margin-right: 15px; vertical-align: middle;">
+										<span><strong>E001:</strong> Mob. Endgeräte</span>
+									</td>
+									<td>Vertraulichkeit, Integrität, Verfügbarkeit</td>
+									<td><span style="color: #FFD700; font-weight: bold;">HOCH</span></td>
+								</tr>
+								<tr class="fragment fade-left">
+									<!-- <td><strong>D001:</strong> Sensible Unternehmensdaten</td> -->
+									<td style="text-align: left; vertical-align: middle; align-items: center;">
+										<img src="images/document.svg" alt="Data" style="height: 1.2em; margin-right: 15px; vertical-align: middle;">
+										<span><strong>D001:</strong> PHI & IP Data</span>
+									</td>
+									<td>Vertraulichkeit, Integrität, Verfügbarkeit</td>
+									<td><span style="color: #FF5555; font-weight: bold;">SEHR HOCH</span></td>
+								</tr>
+								<tr class="fragment fade-up">
+									<!-- <td><strong>S001:</strong> Cloud-Kollaborationsplattform</td> -->
+									<td style="text-align: left; vertical-align: middle; align-items: center;">
+										<img src="images/cloud.svg" alt="Cloud" style="height: 1.2em; margin-right: 15px; vertical-align: middle;">
+										<span><strong>S001:</strong> Cloudplattform</span>
+									</td>
+									<td>Vertraulichkeit, Integrität, Verfügbarkeit</td>
+									<td><span style="color: #FF5555; font-weight: bold;">SEHR HOCH</span></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p class="fragment" style="margin-top: 25px;">
+							<strong>Fazit:</strong> Alle Kernprozesse hängen von Assets mit hohem oder sehr hohem
+							Schutzbedarf ab. Der Schutz dieser Werte ist für das Unternehmen überlebenswichtig.
+						</p>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Im ersten Schritt der Methodik, der Schutzbedarfsfeststellung, identifizieren wir die kritischen Werte, die "Kronjuwelen".</li>
+							<li>Dies sind die <strong>mobilen Geräte</strong>, unsere <strong>sensiblen Daten</strong> (PHI & IP) und die <strong>Cloud-Plattform</strong>.</li>
+							<li>Die Analyse ergibt einen <strong>hohen</strong> bis <strong>sehr hohen</strong> Schutzbedarf. Der Schutz dieser Werte ist für das Unternehmen überlebenswichtig.</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							<strong>recodeHealth</strong>
+						</p>
+
+						<div class="r-fit-text">
+							<h3>Schadensszenario: Die konkreten Folgen</h3>
+							<p style="font-size: 0.7em;">Der Verlust eines unverschlüsselten Geräts (Risiko R-001) führt zur direkten Offenlegung von Patientendaten (PHI) und geistigem Eigentum (IP).</p>
+							<p style="font-size: 1.1em; color: #FF5555; margin-top: 20px;">⇩</p>
+							<ul style="font-size: 0.7em;">
+								<li class="fragment fade-right">Hohe DSGVO-Bußgelder</li>
+								<li class="fragment fade-left">Erheblicher Reputationsschaden</li>
+								<li class="fragment fade-up">Verlust des Wettbewerbsvorteils</li>
+							</ul>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Um das Risiko greifbar zu machen, hier das konkrete Schadensszenario.</li>
+							<li>Der Verlust eines ungesicherten Geräts führt direkt zur Offenlegung von Patientendaten und geistigem Eigentum.</li>
+							<li>Die direkten Folgen sind klar: Hohe DSGVO-Bußgelder, massiver Reputationsschaden und der Verlust unseres Wettbewerbsvorteils.</li>
+							<li>Dieses Szenario zeigt, was auf dem Spiel steht. Im Soll-Ist-Abgleich sehen wir nun, <strong>warum</strong> wir aktuell so verwundbar sind.</li>
+						</ul>
+					</aside>
+				</section>
+
+			</section>
+
+			<section name="soll-ist">
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #ffffff; font-weight: bold;">
+							<strong>der SOLL-/IST-Abgleich</strong>
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h3>SOLL-/IST-Abgleich: Die Lücken auf einen Blick</h3>
+					<div class="r-fit-text">
+						<table style="font-size: 0.8em; margin: auto; width: 80%;">
+							<thead>
+								<tr>
+									<th>Kontrollbereich</th>
+									<th>SOLL</th>
+									<th>IST</th>
+									<th>Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="fragment fade-down">
+									<td>Zentrales Gerätemanagement (MDM)</td>
+									<td>4</td>
+									<td>1</td>
+									<td><span style="color: #FF5555;">&#10007; Nicht umgesetzt</span></td>
+								</tr>
+								<tr class="fragment fade-left">
+									<td>Datentrennung (Container)</td>
+									<td>4</td>
+									<td>1</td>
+									<td><span style="color: #FF5555;">&#10007; Nicht umgesetzt</span></td>
+								</tr>
+								<tr class="fragment fade-right">
+									<td>App-Management</td>
+									<td>4</td>
+									<td>1</td>
+									<td><span style="color: #FF5555;">&#10007; Nicht umgesetzt</span></td>
+								</tr>
+								<tr class="fragment fade-left">
+									<td>Incident Response (Remote Wipe)</td>
+									<td>4</td>
+									<td>1</td>
+									<td><span style="color: #FF5555;">&#10007; Nicht umgesetzt</span></td>
+								</tr>
+								<tr class="fragment fade-up">
+									<td>Schulung der Mitarbeiter</td>
+									<td>4</td>
+									<td>4</td>
+									<td><span style="color: #55FF55;">&#10003; Umgesetzt</span></td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="fragment" style="margin-top: 20px;"><strong>Fazit:</strong> Mit Ausnahme der Schulungen fehlen alle fundamentalen technischen Kontrollen.</p>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Der Soll-Ist-Abgleich zeigt nun die Lücken zwischen den Anforderungen und unserer Realität.</li>
+							<li>Das Ergebnis ist eindeutig: Uns fehlen alle fundamentalen technischen Kontrollen.</li>
+							<li>Konkret: Kein <strong>zentrales Management</strong>, keine <strong>Datentrennung</strong>, kein <strong>App-Management</strong> und keine <strong>Remote-Wipe-Fähigkeit</strong>.</li>
+							<li>Diese Lücken sind die direkte Ursache für die Risiken, die wir als Nächstes analysieren.</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+
+			<section name="risk-analysis">
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #ffffff; font-weight: bold;">
+							<strong>die Risikoanalyse</strong>
+						</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-fit-text" style="width: 80%;">
+						<h3>Risikoanalyse: Die konkreten Gefahren</h3>
+						<div style="display: flex; align-items: center; justify-content: center;">
+							<div style="flex: 1; padding: 10px;">
+								<table class="risk-matrix">
+									<tbody>
+										<tr>
+											<td rowspan="5" class="header axis-label-v" style="border: none;">
+												PROBABILITY</td>
+											<td class="header">5</td>
+											<td class="risk-low">5</td>
+											<td class="risk-medium">10</td>
+											<td class="risk-high">15</td>
+											<td class="risk-high">20</td>
+											<td class="risk-extreme">25</td>
+										</tr>
+										<tr>
+											<td class="header">4</td>
+											<td class="risk-low">4</td>
+											<td class="risk-medium">8</td>
+											<td class="risk-high">12</td>
+											<td class="risk-high">16</td>
+											<td class="risk-high">20</td>
+										</tr>
+										<tr>
+											<td class="header">3</td>
+											<td class="risk-low">3</td>
+											<td class="risk-medium">6</td>
+											<td class="risk-medium">9</td>
+											<td class="risk-high">12</td>
+											<td class="risk-high">15</td>
+										</tr>
+										<tr>
+											<td class="header">2</td>
+											<td class="risk-low">2</td>
+											<td class="risk-low">4</td>
+											<td class="risk-medium">6</td>
+											<td class="risk-medium">8</td>
+											<td class="risk-medium">10</td>
+										</tr>
+										<tr>
+											<td class="header">1</td>
+											<td class="risk-low">1</td>
+											<td class="risk-low">2</td>
+											<td class="risk-low">3</td>
+											<td class="risk-low">4</td>
+											<td class="risk-low">5</td>
+										</tr>
+										<tr>
+											<td class="header" style="border: none;"></td>
+											<td class="header" style="border: none;"></td>
+											<td class="header">1</td>
+											<td class="header">2</td>
+											<td class="header">3</td>
+											<td class="header">4</td>
+											<td class="header">5</td>
+										</tr>
+										<tr>
+											<td style="border: none;"></td>
+											<td style="border: none;"></td>
+											<td colspan="5" class="header axis-label-h" style="border: none;">IMPACT
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="" style="flex: 2; padding: 10px; font-size: 0.75em;">
+								<!-- <p>Die Analyse der Lücken führt zu folgenden Top-Risiken:</p> -->
+								<table>
+									<thead>
+										<tr>
+											<th style="width: 15%;">Risk ID</th>
+											<th style="width: 60%;">Beschreibung</th>
+											<th style="width: 25%;">Risikowert</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="fragment fade-down">
+											<td>R-001</td>
+											<td>Datenverlust durch verlorenes/gestohlenes Gerät</td>
+											<td><span style="color: #FF5555; font-weight: bold;">22,5 (Extrem)</span>
+											</td>
+										</tr>
+										<tr class="fragment fade-left">
+											<td>R-002</td>
+											<td>Netzwerk-Kompromittierung durch schädliche App</td>
+											<td><span style="color: #FFA500; font-weight: bold;">16 (Hoch)</span></td>
+										</tr>
+										<tr class="fragment fade-up">
+											<td>R-003</td>
+											<td>Datenleck durch ungesicherte private Apps</td>
+											<td><span style="color: #FFA500; font-weight: bold;">16 (Hoch)</span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Basierend auf diesen Lücken folgt nun die Risikoanalyse.</li>
+							<li>Die Bewertungsmethode sehen Sie links: eine 5x5-Matrix aus Wahrscheinlichkeit und Schadenshöhe.</li>
+							<li>Die Analyse identifiziert drei Hauptrisiken. Allen voran <strong>R-001</strong>: Der <strong>Datenverlust</strong> durch ein verlorenes Gerät, eingestuft als <strong>extremes</strong> Risiko.</li>
+							<li>Die Risiken der <strong>Netzwerk-Kompromittierung</strong> und möglicher <strong>Datenlecks</strong> sind ebenfalls <strong>hoch</strong>.</li>
+							<li>Das Fazit dieser Analyse ist klar: Das Unternehmen ist inakzeptablen Risiken ausgesetzt.</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+
+			<section name="conclusion">
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #ffffff; font-weight: bold;">
+							<strong>das Fazit</strong>
+						</p>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Dies führt uns zum Fazit der Analyse.</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							<strong>recodeHealth</strong>
+						</p>
+
+						<div style="width: 90%;">
+							<div style="display: flex; align-items: center; justify-content: space-around; text-align: center;">
+
+								<div class="fragment fade-right" style="flex: 1; padding: 20px;">
+									<h4>Fazit</h4>
+									<p style="font-size: 0.8em;">Der aktuelle Ad-hoc-Ansatz ist</p>
+									<p style="font-size: 1.2em; color: #FF5555; font-weight: bold;">UNTRAGBAR</p>
+									<p style="font-size: 0.8em;">und stellt eine direkte</p>
+									<p style="font-size: 1.2em; color: #FF5555; font-weight: bold;">BEDROHUNG</p>
+									<p style="font-size: 0.8em;">für die Kernwerte des Unternehmens dar.</p>
+								</div>
+
+								<div class="fragment fade-left" style="flex: 1; padding: 20px; border-left: 2px solid #ccc;">
+									<h4>Empfehlung</h4>
+									<p style="font-size: 0.8em;">Unverzügliche Autorisierung zur Erstellung einer verbindlichen</p>
+									<p style="font-size: 1.2em; color: #55FF55; font-weight: bold;">SICHERHEITSRICHTLINIE</p>
+									<p style="font-size: 0.8em;">für mobile Endgeräte.</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Der aktuelle Ad-hoc-Ansatz ist untragbar. Er stellt eine direkte Bedrohung für unsere Kernwerte dar, wie das extreme Risiko R-001 gezeigt hat.</li>
+							<li>Ich empfehle daher die unverzügliche Autorisierung zur Entwicklung und Implementierung einer verbindlichen <strong>Sicherheitsrichtlinie für mobile Endgeräte</strong>.</li>
+							<li>Dies ist der notwendige Schritt, um die identifizierten Risiken zu mitigieren und die DSGVO-Konformität sicherzustellen.</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+
+			<section name="solution">
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #ffffff; font-weight: bold;">
+							<strong>die Lösung</strong>
+						</p>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Meine Empfehlung ist also die Einführung einer Sicherheitsrichtlinie. Lassen Sie uns nun die Lösung im Detail betrachten:</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							<strong>recodeHealth</strong>
+						</p>
+
+						<div class="r-fit-text" style="width: 85%">
+							<h3>Die Lösung: Ein Überblick</h3>
+							<ul style="list-style-type: none; padding-left: 0;">
+								<li class="fragment"><strong>Der Rahmen:</strong> Eine verbindliche Sicherheitsrichtlinie.</li>
+								<li class="fragment"><strong>Die Basis:</strong> ISO 27001 & BSI IT-Grundschutz.</li>
+								<li class="fragment"><strong>Das Ziel:</strong> Systematische Schließung aller identifizierten Lücken.</li>
+							</ul>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Die Richtlinie schafft den verbindlichen Rahmen, um die festgestellten Risiken zu mitigieren.</li>
+							<li>Sie basiert auf den Standards der ISO 27001 und den konkreten Empfehlungen des BSI IT-Grundschutzes zum Thema Mobile Device Management.</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+
+			<section name="pd-allgemeine-regelungen">
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text blur"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							<strong>recodeHealth</strong>
+						</p>
+
+						<div class="r-fit-text">
+							<h3>Policy-Details: Allgemeine Regelungen</h3>
+							<p>Dieser Abschnitt definiert die grundlegenden Sicherheitsanforderungen für alle Geräte und
+								Nutzer.
+							</p>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Wir kommen nun zum Herzstück der Lösung: der Richtlinie selbst.</li>
+							<li>Ich werde Sie durch die wichtigsten Punkte von <strong>Kapitel 4, "Regelungen"</strong>, führen.</li>
+							<li>Dieses Kapitel definiert die grundlegenden Sicherheitsanforderungen, die für alle Mitarbeiter und Geräte gelten.</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">'.</p>
+						<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;"><strong>recodeHealth</strong></p>
+
+						<div style="width: 90%;">
+							<h3>Kernregelung: Die technische Basis</h3>
+							<div style="display: flex; align-items: flex-start; justify-content: space-around; text-align: center; margin-top: 50px;">
+
+								<div class="fragment fade-right" style="flex: 1; padding: 0 20px;">
+									<img src="images/mdm-icon.svg" alt="MDM" style="height: 100px; border: none; box-shadow: none;">
+									<h4>MDM-Pflicht (Kap. 4.1)</h4>
+									<p style="font-size: 0.6em;">Jedes Gerät muss zentral verwaltet werden. Ohne MDM kein Zugriff auf Unternehmensdaten.</p>
+								</div>
+
+								<div class="fragment fade-left" style="flex: 1; padding: 0 20px;">
+									<img src="images/settings-icon.svg" alt="Settings" style="height: 100px; border: none; box-shadow: none;">
+									<h4>Basiskonfiguration (Kap. 4.2)</h4>
+									<ul style="font-size: 0.6em; list-style-type: '✓  '; text-align: left; margin-left: 20%;">
+										<li>Starke Gerätesperre</li>
+										<li>Geräteverschlüsselung</li>
+										<li>Automatische Sperre</li>
+										<li>OS-Sicherheitsupdates</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Die wichtigste Regel zuerst: Jedes Gerät <strong>muss</strong> in unserem zentralen Management-System, dem MDM, registriert sein. Ohne MDM gibt es keinen Zugriff.</li>
+							<li>Das MDM erzwingt dann die technische Grundsicherheit: Eine starke Gerätesperre, Verschlüsselung und zeitnahe Sicherheitsupdates.</li>
+							<li>Damit schaffen wir eine einheitliche und sichere Basis für alle Geräte.</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">'.</p>
+						<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;"><strong>recodeHealth</strong></p>
+
+						<div style="width: 90%;">
+							<h3>Kernregelung: Daten- & App-Kontrolle</h3>
+							<div style="display: flex; align-items: flex-start; justify-content: space-around; text-align: center; margin-top: 50px;">
+
+								<div class="fragment fade-right" style="flex: 1; padding: 0 20px;">
+									<img src="images/datentrennung.svg" alt="Datentrennung" style="height: 100px; border: none; box-shadow: none;">
+									<h4>Datentrennung (Kap. 4.3)</h4>
+									<p style="font-size: 0.6em;">Ein verschlüsselter "Container" trennt Geschäftsdaten strikt von privaten Apps und Daten.</p>
+								</div>
+
+								<div class="fragment fade-left" style="flex: 1; padding: 0 20px;">
+									<img src="images/app-management.svg" alt="App Management" style="height: 100px; border: none; box-shadow: none;">
+									<h4>App-Management (Kap. 4.4)</h4>
+									<p style="font-size: 0.6em;">Mitarbeiter können nur geprüfte und freigegebene Apps aus einem internen "Enterprise App Store" installieren.</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Die nächsten Kontrollen aus Kapitel 4.3 und 4.4 adressieren die Risiken von Datenlecks und Schadsoftware.</li>
+							<li><strong>Erstens, die Datentrennung:</strong> Wir schaffen einen verschlüsselten "Container" für Firmendaten. So wird verhindert, dass sensible Informationen in private Apps abfließen können. Dies mitigiert Risiko R-003.</li>
+							<li><strong>Zweitens, das App-Management:</strong> Mitarbeiter können nur noch geprüfte Apps aus unserem internen Store installieren. Dies blockiert Schadsoftware und mitigiert Risiko R-002.</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">'.</p>
+						<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;"><strong>recodeHealth</strong></p>
+
+						<div style="width: 90%;">
+							<h3>Kernregelung: Netzwerk & Datensicherheit</h3>
+							<div style="display: flex; align-items: flex-start; justify-content: space-around; text-align: center; margin-top: 50px;">
+
+								<div class="fragment fade-right" style="flex: 1; padding: 0 20px;">
+									<img src="images/vpn-icon.svg" alt="VPN" style="height: 100px; border: none; box-shadow: none;">
+									<h4>Sichere Verbindung (Kap. 4.5)</h4>
+									<p style="font-size: 0.6em;">Der Zugriff auf interne Ressourcen erfolgt ausschließlich über eine gesicherte VPN-Verbindung. Private Cloud-Dienste sind verboten.</p>
+								</div>
+
+								<div class="fragment fade-left" style="flex: 1; padding: 0 20px;">
+									<img src="images/no-screenshot-icon.svg" alt="Datenschutz" style="height: 100px; border: none; box-shadow: none;">
+									<h4>Datenschutz am Gerät (Kap. 4.7)</h4>
+									<p style="font-size: 0.6em;">Hochsensible Daten dürfen nicht dauerhaft gespeichert werden. Screenshots aus dem sicheren Container sind technisch blockiert.</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Die nächsten Regeln sichern die Datenübertragung und -verarbeitung.</li>
+							<li><strong>Erstens, die sichere Verbindung:</strong> Der Zugriff auf interne Systeme erfolgt ausschließlich über unser gesichertes VPN. Die Nutzung privater Cloud-Dienste ist untersagt.</li>
+							<li><strong>Zweitens, der Datenschutz am Gerät:</strong> Besonders sensible Daten dürfen nicht dauerhaft gespeichert werden, und Screenshots aus dem sicheren Bereich sind technisch blockiert.</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">'.</p>
+						<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;"><strong>recodeHealth</strong></p>
+
+						<div style="width: 90%;">
+							<h3>Kernregelung: Physische Sicherheit</h3>
+							<div style="display: flex; align-items: flex-start; justify-content: space-around; text-align: center; margin-top: 50px;">
+
+								<div class="fragment fade-right" style="flex: 1; padding: 0 20px;">
+									<img src="images/physical-security-icon.svg" alt="Physischer Schutz" style="height: 100px; border: none; box-shadow: none;">
+									<h4>Physischer Schutz (Kap. 4.8)</h4>
+									<p style="font-size: 0.6em;">Mobile Geräte dürfen niemals an öffentlichen Orten unbeaufsichtigt gelassen werden.</p>
+								</div>
+
+								<div class="fragment fade-left" style="flex: 1; padding: 0 20px;">
+									<img src="images/notfallprozess-icon.svg" alt="Notfallprozess" style="height: 100px; border: none; box-shadow: none;">
+									<h4>Sofortige Meldepflicht (Kap. 4.8)</h4>
+									<p style="font-size: 0.6em;">Verlust oder Diebstahl eines Geräts muss unverzüglich und ohne Ausnahme dem IT-Helpdesk gemeldet werden.</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Abschließend zu den Nutzerregeln in Kapitel 4.8: die menschliche Komponente.</li>
+							<li>Jede technische Maßnahme ist nutzlos ohne <strong>physische Sicherheit</strong>. Geräte dürfen niemals unbeaufsichtigt bleiben.</li>
+							<li>Und am allerwichtigsten: Bei Verlust oder Diebstahl gilt eine <strong>sofortige Meldepflicht</strong> an den IT-Helpdesk. Dies ist der entscheidende erste Schritt in unserem Notfallprozess.</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+
+			<section name="pflichten-administration">
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">'.</p>
+						<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;"><strong>recodeHealth</strong></p>
+
+						<div style="width: 95%;">
+							<h3>Pflichten der Administration (Kap. 5)</h3>
+							<div style="display: flex; justify-content: space-around; align-items: flex-start; margin-top: 30px; font-size: 0.5em; text-align: center;">
+
+								<div class="fragment fade-right" style="flex: 1; padding: 0 10px;">
+									<img src="images/hardening-icon.svg" alt="Härtung" style="height: 80px;">
+									<h4>Systemhärtung</h4>
+									<p>Sicherung der MDM-Infrastruktur nach BSI-Standards.</p>
+								</div>
+
+								<div class="fragment fade-up" style="flex: 1; padding: 0 10px;">
+									<img src="images/monitoring-icon.svg" alt="Überwachung" style="height: 80px;">
+									<h4>Überwachung</h4>
+									<p>Aktive Protokollierung und Auswertung sicherheitsrelevanter Ereignisse.</p>
+								</div>
+
+								<div class="fragment fade-down" style="flex: 1; padding: 0 10px;">
+									<img src="images/compliance-icon.svg" alt="Compliance" style="height: 80px;">
+									<h4>Compliance-Durchsetzung</h4>
+									<p>Automatisierter, gestufter Prozess bei Regelverstößen (Warnung, Sperrung, Löschung).</p>
+								</div>
+
+								<div class="fragment fade-left" style="flex: 1; padding: 0 10px;">
+									<img src="images/lifecycle-icon.svg" alt="Lebenszyklus" style="height: 80px;">
+									<h4>Gerätelebenszyklus</h4>
+									<p>Sichere Außerbetriebnahme und nachweisliche Datenlöschung.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Kapitel 5 definiert die Pflichten der Administration, die das Rückgrat unserer Sicherheitsstrategie bilden.</li>
+							<li><strong>Erstens, die Systemhärtung:</strong> Wir sichern die MDM-Infrastruktur selbst nach BSI-Standards ab.</li>
+							<li><strong>Zweitens, die Überwachung:</strong> Alle sicherheitsrelevanten Ereignisse werden protokolliert und aktiv ausgewertet, um Anomalien zu erkennen.</li>
+							<li><strong>Drittens, die Compliance-Durchsetzung:</strong> Das System reagiert automatisch auf Regelverstöße mit einem klaren, gestuften Prozess.</li>
+							<li><strong>Viertens, der Gerätelebenszyklus:</strong> Wir stellen sicher, dass alle Daten am Ende der Nutzungsdauer nachweislich gelöscht werden.</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+
+			<section name="meldung" data-auto-animate>
+				<div class="r-stack">
+					<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">'.</p>
+					<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;"><strong>recodeHealth</strong></p>
+
+					<div style="width: 95%;">
+						<h3>Policy-Details: Meldung & Eskalation (Kap. 6)</h3>
+						<p style="font-size: 0.6em;">Ein klar definierter, vierstufiger Prozess für den Ernstfall.</p>
+						<div style="display: flex; justify-content: space-around; align-items: flex-start; margin-top: 30px; font-size: 0.5em; text-align: center;">
+
+							<div class="fragment fade-right" style="flex: 1; padding: 0 5px;">
+								<img src="images/user-icon.svg" alt="Mitarbeiter" style="height: 60px;">
+								<h4>1. Meldung</h4>
+								<p>Mitarbeiter meldet den Vorfall.</p>
+							</div>
+
+							<div class="fragment fade-right" style="flex: 0.5; font-size: 2.5em; color: skyblue; align-self: center;">⇨</div>
+
+							<div class="fragment" style="flex: 1; padding: 0 5px;">
+								<img src="images/helpdesk-icon.svg" alt="IT-Helpdesk" style="height: 60px;">
+								<h4>2. Sofortmaßnahme</h4>
+								<p>IT-Helpdesk führt <strong>Remote Lock</strong> durch.</p>
+							</div>
+
+							<div class="fragment fade-right" style="flex: 0.5; font-size: 2.5em; color: skyblue; align-self: center;">⇨</div>
+
+							<div class="fragment fade-right" style="flex: 1; padding: 0 5px;">
+								<img src="images/isb-icon.svg" alt="ISB" style="height: 60px;">
+								<h4>3. Eskalation</h4>
+								<p>ISB bewertet & autorisiert ggf. <strong>Remote Wipe</strong>.</p>
+							</div>
+
+							<div class="fragment fade-right" style="flex: 0.5; font-size: 2.5em; color: skyblue; align-self: center;">⇨</div>
+							
+							<div class="fragment fade-right" style="flex: 1; padding: 0 5px;">
+								<img src="images/document.svg" alt="Dokumentation" style="height: 60px;">
+								<h4>4. Dokumentation</h4>
+								<p>Alle Schritte werden im Ticketsystem protokolliert.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<aside class="notes">
+					<ul>
+						<li>Ein gutes Sicherheitskonzept beweist sich im Ernstfall. Kapitel 6 definiert unseren klaren Eskalationsprozess.</li>
+						<li>Der Prozess beginnt, wenn ein <strong>Mitarbeiter</strong> einen Vorfall meldet.</li>
+						<li>Der <strong>IT-Helpdesk</strong> reagiert sofort mit der <strong>Fernsperrung</strong> des Geräts – das ist die kritische Erstmaßnahme.</li>
+						<li>Anschließend bewertet der <strong>ISB</strong> die Lage und autorisiert bei Bedarf die endgültige <strong>Fernlöschung</strong> der Daten.</li>
+						<li>Der gesamte Prozess wird für Audits lückenlos <strong>dokumentiert</strong>.</li>
+					</ul>
+				</aside>
+			</section>
+
+			<section name="responsibilities">
+				<!-- <section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+							'.
+						</p>
+						<p class="r-fit-text"
+							style="font-family: 'Courier New', Courier, monospace; color: #ffffff; font-weight: bold;">
+							<strong>die Verantwortlichkeiten</strong>
+						</p>
+					</div>
+				</section> -->
+
+				<section data-auto-animate>
+					<div class="r-stack">
+						<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">'.</p>
+						<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;"><strong>recodeHealth</strong></p>
+
+						<div style="width: 95%;">
+							<h3>Verantwortlichkeiten (Kap. 3)</h3>
+							<div style="display: flex; justify-content: space-around; align-items: flex-start; margin-top: 30px; font-size: 0.5em; text-align: center;">
+
+								<div class="fragment fade-right" style="flex: 1; padding: 0 10px;">
+									<img src="images/isb-icon.svg" alt="ISB" style="height: 80px;">
+									<h4>ISB</h4>
+									<p>Entwickelt, pflegt und überwacht die Richtlinie; genehmigt Ausnahmen.</p>
+								</div>
+
+								<div class="fragment fade-up" style="flex: 1; padding: 0 10px;">
+									<img src="images/management-icon.svg" alt="IT-Leitung" style="height: 80px;">
+									<h4>IT-Leitung</h4>
+									<p>Stellt die notwendigen Ressourcen (Budget, Personal) für das MDM bereit.</p>
+								</div>
+
+								<div class="fragment fade-down" style="flex: 1; padding: 0 10px;">
+									<img src="images/helpdesk-icon.svg" alt="Admin/Helpdesk" style="height: 80px;">
+									<h4>Systemadministration</h4>
+									<p>Administriert das MDM, setzt Regeln um und führt Notfallmaßnahmen durch.</p>
+								</div>
+
+								<div class="fragment fade-left" style="flex: 1; padding: 0 10px;">
+									<img src="images/user-icon.svg" alt="Mitarbeiter" style="height: 80px;">
+									<h4>Mitarbeiter</h4>
+									<p>Ist zur Einhaltung der Regeln und zur sofortigen Meldung von Vorfällen verpflichtet.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Kapitel 3 klärt die Verantwortlichkeiten – denn Sicherheit ist eine Teamleistung.</li>
+							<li>Der <strong>ISB</strong> ist für die strategische Steuerung und Überwachung der Richtlinie zuständig.</li>
+							<li>Die <strong>IT-Leitung</strong> sichert die notwendigen Ressourcen, also Budget und Personal.</li>
+							<li>Die <strong>Systemadministration</strong> ist für den operativen Betrieb und die technische Umsetzung verantwortlich.</li>
+							<li>Und am wichtigsten: Jeder <strong>Mitarbeiter</strong> trägt die Verantwortung für die tägliche, sichere Nutzung und die Meldung von Vorfällen.</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+
+			<section name="verbesserung" data-auto-animate>
+				<div class="r-stack">
+					<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">'.</p>
+					<p class="r-fit-text blur" style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;"><strong>recodeHealth</strong></p>
+
+					<div style="width: 90%;">
+						<h3>Kontinuierliche Verbesserung</h3>
+						<div style="display: flex; align-items: flex-start; justify-content: space-around; text-align: center; margin-top: 50px;">
+
+							<div class="fragment" style="flex: 1; padding: 0 20px;">
+								<img src="images/audit-icon.svg" alt="Audits" style="height: 100px; border: none; box-shadow: none;">
+								<h4>Audits</h4>
+								<p style="font-size: 0.6em;">Jährliche Überprüfung der technischen Konfigurationen und der etablierten Prozesse durch den ISB.</p>
+							</div>
+
+							<div class="fragment" style="flex: 1; padding: 0 20px;">
+								<img src="images/lifecycle-icon.svg" alt="Aktualisierung" style="height: 100px; border: none; box-shadow: none;">
+								<h4>Aktualisierung</h4>
+								<p style="font-size: 0.6em;">Regelmäßige Anpassung der Richtlinie an neue Bedrohungen und basierend auf den Auditergebnissen.</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<aside class="notes">
+					<ul>
+						<li>Abschließend verankern wir in Kapitel 9 und 10 einen Prozess der kontinuierlichen Verbesserung.</li>
+						<li>Durch <strong>jährliche Audits</strong> überprüfen wir systematisch die Wirksamkeit unserer Maßnahmen.</li>
+						<li>Die Ergebnisse fließen direkt in die <strong>Aktualisierung</strong> der Richtlinie ein, um sie an neue Bedrohungen anzupassen.</li>
+						<li>So stellen wir sicher, dass unsere Sicherheit nachhaltig ist und dem Plan-Do-Check-Act-Zyklus der ISO 27001 folgt.</li>
+					</ul>
+				</aside>
+			</section>
+
+			<section data-auto-animate>
+				<div class="r-stack">
+					<p class="r-fit-text blur"
+						style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+						'.
+					</p>
+					<p class="r-fit-text blur"
+						style="font-family: 'Courier New', Courier, monospace; color: #2a9d8f; font-weight: bold;">
+						<strong>recodeHealth</strong>
+					</p>
+
+					<div class="r-fit-text">
+						<h3>Vielen Dank für Ihre Aufmerksamkeit</h3>
+						<br>
+						<h2>Haben Sie Fragen?</h2>
+					</div>
+				</div>
+				<aside class="notes">
+					<ul>
+						<li><strong>Problem:</strong> Wir begannen mit der inakzeptablen Gefahr durch ungesteuerte Mobilgeräte.</li>
+						<li><strong>Analyse:</strong> Unsere ISMS-Methodik hat diese Gefahr bestätigt und ein extremes Risiko (R-001) für unsere Kerngeschäftswerte aufgedeckt.</li>
+						<li><strong>Lösung:</strong> Die logische Konsequenz ist die empfohlene Sicherheitsrichtlinie, die durch Kontrollen wie MDM und Containerisierung die Sicherheit erzwingt.</li>
+						<li><strong>Ergebnis:</strong> Das Resultat wird eine sichere, konforme und produktive mobile Arbeitsumgebung für die RecodeHealth AG sein.</li>
+						<br>
+						<li>Vielen Dank für Ihre Aufmerksamkeit. Ich stehe Ihnen nun für Ihre Fragen zur Verfügung.</li>
+					</ul>
+				</aside>
+			</section>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+	<script>
+		Reveal.initialize({
+			hash: true,
+			// Set default theme and transition for main slides
+			theme: document.getElementById('theme'),
+			transition: 'convex',
+			plugins: [RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
